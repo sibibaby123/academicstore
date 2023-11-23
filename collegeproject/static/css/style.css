@@ -1,0 +1,119 @@
+body{
+    font-family :'Roboto', sans-serif;
+     }
+.form-container{
+  display: flex;
+  justify-content: center;
+  margin:auto;
+  align-items: center;
+  min-height: 100vh; /* vh stands for viewport height */
+}
+
+.form{
+  width: 50%;
+   }/* adjust this value to control the form's width */
+.nav-item{
+      letter-spacing:.2em;
+       font-size:14px;
+       text-transform:uppercase;
+       }
+.dropdown-menu{
+        letter-spacing:.2em;
+         font-size:14px;
+         text-transform:uppercase
+          }
+ .submenu dropdown-menu{
+           position:absolute;
+           width:140px;
+           left:100%
+           top:0;
+           display:none;
+          }
+/* image containers */
+.column{
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after{
+  content: "";
+  clear: both;
+  display: table;
+}
+.row{
+  display: flex;
+  letter-spacing : .2em;
+   justify-content : center;
+   align-items : center;
+   text-transform : uppercase;
+   }
+}
+
+.column{
+  flex: 33.33%;
+  padding: 5px;
+}
+.demo_font{
+     display : flex;
+     padding : 0;
+     display: flex;
+     letter-spacing : .2em;
+     justify-content : center;
+     align-items : center;
+     text-transform : uppercase;
+     }
+.my_footer{
+          position:fixed;
+          margin-top:auto;
+          width:100% ;
+          background-color:#f8f9fa;
+          height:60px;
+          left:0;
+          padding-bottom:70px;
+          }
+ .my_footer p{
+          position:fixed;
+          width:100%;
+          padding-bottom:20px;
+          font-size:14px;
+          }
+ .my_row_class{
+          padding:15px;
+          }
+  .my_row_class .mx_auto{
+          color:#000;
+          font-size:12px;
+          }
+  .my_image_padding{
+          padding : 15px;
+          }
+  .my_image{
+          padding:15px;
+          }
+  .my_bottom_margin{
+          margin-bottom:10px;
+          }
+.my_footer{
+          position:fixed;
+          margin-top:auto;
+          width:100% ;
+          background-color:#f8f9fa;
+          height:30px;
+          left:0;
+          padding-bottom:40px;
+          }
+ .my_footer p{
+          position:fixed;
+          width:100%;
+          padding-bottom:10px;
+          font-size:14px;
+          }
+          input[type="checkbox"] {
+            vertical-align: middle;
+        }
+.span12.pagination-centered{
+            margin: 25px auto;
+            width: 100px;
+        }

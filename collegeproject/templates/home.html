@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+   {% if department %}
+     {{department.description|truncatewords:155}}
+   {% else %}
+     Nothing to show
+   {% endif %}
+{% endblock %}
+{% block title %}
+   {% if department %}
+       {{department.name}}
+   {% else %}
+      KIT
+    {% endif %}
+{% endblock %}
+{% block content %}
+ <div>
+     <div>
+         <h3 class="text-center">Welcome to Kerala College of Technology</h3>
+         <img src="{% static 'img/college.jpeg' %}" alt="collegeimage" height="359px;" width="1650px;">
+     </div>
+ </div><br>
+        <h3 class="text-center">OUR INFRASTRUCTURE</h3>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">GREEN CAMPUS</h5>
+                <img src="{% static 'img/campus.png' %}" <a href="" alt="campus" style="width: 250px;"></a><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                  <h5 class="card-title">DIGITAL LIBRARY</h5>
+                  <img src="{% static 'img/library.png' %}" alt="library" style="width: 250px"><br>
+                  </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                     <h5 class="card-title">HOSTEL</h5>
+                    <img src="{% static 'img/hostel.png' %}" alt="hostel" style="width: 250px"><br>
+                </div>
+             </div>
+         </div>
+</div>
+
+{% endblock %}

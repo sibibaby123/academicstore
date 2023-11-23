@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+signup form
+{% endblock %}
+{% block title %}
+signup
+{% endblock %}
+{% block content %}
+<body class="bg-light">
+    <div class="row my_row_class">
+      <div class = "mx_auto">
+        <p><a href ="{% url 'authentication:allCourse' %}">Home</a></p>
+      </div>
+    </div>
+<div class="form-container border-primary bg-light">
+    <div class="row">
+         <div class="col-sm-12 col-md-12 col-lg-12 offset-lg-0 p-5">
+             <div class="card border-primary">
+                 <div class="card-body">
+                     <h2 class="text-primary">Signin</h2>
+                <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                <label for="first_name"><b>First Name</b></label>
+                <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Enter the first name" required>
+               </div>
+                <div class="form-group">
+              <label for="last_name"><b>Last Name</b></label>
+              <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Enter the last name" required>
+        </div>
+        <div class="form-group">
+              <label for="username"><b>Username</b></label>
+              <input type="username" class="form-control" id="username" name="username" placeholder="Enter the username" required>
+        </div>
+        <div class="form-group">
+              <label for="email"><b>Email</b></label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="Enter the email" required>
+        </div>
+         <div class="form-group">
+              <label for="password"><b>Password</b></label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter the password" required>
+        </div>
+          <div class="form-group">
+              <label for="cpassword"><b>Confirm Password</b></label>
+              <input type="password" class="form-control" id="cpassword" name="cpassword" placeholder="Confirm the password" required>
+        </div>
+                    {% if error %}
+                    <div>
+                        {{error}}
+                    </div>
+                    {% endif %}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                 </div>
+        </div>
+
+   </div>
+  </div>
+ </div>
+</html>
+{% endblock %}

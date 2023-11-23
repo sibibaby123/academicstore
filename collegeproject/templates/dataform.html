@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+ fill the details    
+{% endblock %}
+{% block title %}
+   Entry form
+{% endblock %}
+{% block content %}
+</head>
+  <body class="bg-light">
+    <div class="row my_row_class">
+      <div class = "mx_auto">
+        <p><a href ="{% url 'authentication:allCourse' %}">Home</a></p>
+      </div>
+    </div>
+    <div class="form-container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12 offset-lg-0 p-5">
+              <div class="card">
+                  <div class="card-body text-center">
+                      <div class="card-title">Fill the form details</div>
+                       <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="fname">First Name</label>
+                               <input type="text" class="form-control" value="{{user.first_name}}" id="fname" name="fname" aria-describedby="" placeholder="Enter your name" required>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-group">
+                              <label for="lname">Last Name</label>
+                               <input type="text" class="form-control" value="{{user.last_name}}" id="lname" name="lname" aria-describedby="" placeholder="Enter your name" required>
+                            </div>
+                          </div>
+                        </div>
+                       <div class="form-group">
+                           <label for="email">Email</label>
+                           <input type="email" class="form-control" value="{{user.email}}" id="email" name="email" placeholder="Enter the email" required>
+                        </div><br>
+                       <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" value="{{user.username}}" name="username" placeholder="Enter the username" required>
+                       </div><br>
+                       <div class="form-group">
+                           <label for="date">DATE OF BIRTH</label>
+                           <input type="date" class="form-control" value="{{userextra.dateofbirth|date:'Y-m-d'}}" id="date" name="date" aria-describedby="" placeholder="Enter your dob" required>
+                       </div><br>
+                       <div class="form-group">
+                           <label for="age">AGE</label>
+                           <input type="number" class="form-control" id="age" value="{{userextra.age}}" name="age" aria-describedby="" placeholder="Enter your age" required>
+                       </div><br>
+                       <div class="form-check">GENDER <hr>
+
+                          <input class="form-check-input" type="radio" name="inlineRadioOptions"  {% if userextra.gender %}checked{% endif %}  id="inlineRadio1" value="1" required>
+                          <label class="form-check-label" for="inlineRadio1">MALE</label> </div>
+                          <div class="form-check"><br>
+                          <input class="form-check-input" type="radio"  {% if not userextra.gender %}checked{% endif %} name="inlineRadioOptions" id="inlineRadio2" value="0" required>
+                          <label class="form-check-label" for="inlineRadio2">FEMALE</label>
+                          </div><br>
+                       <div class="form-group">
+                      <label for="number">PHONE NUMBER</label>
+                          <input type="number" class="form-control" id="number" value="{{userextra.phonenumber}}" name="number" aria-describedby="" placeholder="Enter your phone number" required>
+                      </div><br>
+                     <div class="form-group">
+                     <label for="inputAddress">Address</label>
+                     <textarea rows="5" class="form-control" name="address"  value="{{userextra.address}}" ></textarea>
+                     </div><br>
+                     <div class="form-group">
+                        <label for="text">Choose Department</label>
+                        <select name="department" id="department" class="form-select">
+                            <option value="--">--------------------</option>
+                            {% for dept in department %}
+                            <option value="{{dept.id}}">{{dept.name}}</option>
+                            {% endfor %}  
+                          </select>
+                      </div>
+                      <div class="form-group">
+                      <label for="text">Choose Course</label>
+                        <select name="course" id="course" class="form-select">
+                            <option value="--">--------------------</option> 
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="text">Choose Purpose</label>
+                        <select name="purpose" id="purpose" class="form-select">
+                          <option value="--">--------------------</option>
+                            <option value="enquiry">Enquiry</option>
+                            <option value="order">Place Order</option>
+                            <option value="return">Return</option>
+                            </select>
+                      </div>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">Materials</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">Exam paper</th>
+                            <td>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="exampaper" name="exampaper" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Pen</th>
+                            <td>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="pen" name="pen" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                              </div>
+                            </td>
+                          </tr>  
+                          <tr>
+                            <th scope="row">Study Material</th>
+                            <td>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="studymaterial" name="studymaterial" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">Books</th>
+                            <td>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="books" name="books" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <th scope="row">News Paper</th>
+                            <td>
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="newspaper" name="newspaper" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                </label>
+                              </div>
+                            </td>
+                          </tr> 
+                         </tbody>
+                         </table> 
+                         <button type="submit" class="btn btn-primary">Submit</button>
+                         {% if error %}
+                         {{error}}
+                         {% endif %}
+                        </form>
+                   </div>
+                </div>
+            </div>
+         </div>
+     </div>
+  </div>
+  </body>
+</html>
+<script src="{% static 'js/loadcourse.js' %}"></script>
+{% endblock %}
+

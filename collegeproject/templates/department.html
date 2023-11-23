@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+   {{department.desc|truncatewords:155}}
+{% endblock %}
+{% block title %}
+   {{department.name}}
+{% endblock %}
+{% block content %}
+<div class="row my_row_class">
+    <div class = "mx_auto">
+      <p><a href ="{% url 'authentication:allCourse' %}">Home</a>|{{department.name}}</p>
+    </div>
+  </div>
+
+      <div class="container">
+      <div class="row">
+          <div class="col-md-3">
+        <img src = "{{department.image.url}}" alt="{{department.name}}"  height="250px;" width="450px;">
+    </div>
+  </div>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-md">
+    <a class="navbar-brand" href="home/{{department.slug}}">{{department.name}}</a>
+  </div>
+</nav>
+</div>
+  <div>
+    <div>
+      <p>{{department.desc}}</p>
+      <!-- <p>Email for communication:{{department.email}}</p> -->
+    </div>
+  </div>
+ {% endblock %}
